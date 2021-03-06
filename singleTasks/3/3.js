@@ -22,7 +22,7 @@ function checkLimit(limit) {
   if (isNaN(limit)) {
     check.isRight = false;
     check.message = "Введите число от 1 до 10";
-  } else if (limit < 1 || limit > 11) {
+  } else if (limit < 1 || limit > 10) {
     check.isRight = false;
     check.message = "Число вне диапазона от 1 до 10";
   } else {
@@ -58,13 +58,13 @@ function request(url, callback) {
   xhr.open("GET", `${url}${limit}`);
   xhr.onload = function () {
     if (xhr.status != 200) {
-      callback(checkig, `Статус ответа ${xhr.status}`);
+      console.error(`Код ошибки ответа ${xhr.status}`);
     } else {
       callback(checkig, JSON.parse(xhr.response));
     }
   };
-  xhr.onerror = function () {
-    callback(checkig, "Ошибка! Статус ответа: ", xhr.status);
+  xhr.onerror = function (e) {
+    console.error(e);
   };
   if (checkig.isRight) xhr.send();
 }
