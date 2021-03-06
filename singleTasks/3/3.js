@@ -51,7 +51,7 @@ function render(checkRes, response) {
 }
 function request(url, callback) {
   const xhr = new XMLHttpRequest();
-  limit = +inputField.value;
+  const limit = +inputField.value;
   const checkig = checkLimit(limit);
   render(checkig);
 
