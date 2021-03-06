@@ -56,7 +56,7 @@ async function request(url, callback) {
   try {
     const response = await fetch(`${url}${width}/${height}`);
     if (!response.ok) {
-      callback(checkig, `Статус ответа ${response.status}`);
+      console.log(`Ошибка ${response.status}`);
     } else {
       callback(checkig, response.url);
     }

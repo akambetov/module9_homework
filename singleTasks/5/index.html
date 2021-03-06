@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>5</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Поиск фото</h1>
+    <form class="form">
+      <div class="form__control">
+        <label class="form__item" for="page">Номер страницы</label>
+        <input
+          class="form__item"
+          type="text"
+          id="page"
+          placeholder="Номер страницы в диапазоне 1-10"
+        />
+      </div>
+      <div class="form__control">
+        <label class="form__item" for="limit">Лимит</label>
+        <input
+          class="form__item"
+          type="text"
+          id="limit"
+          placeholder="Лимит диапазоне 100-300"
+        />
+      </div>  
+      <button class="form__item button" type="submit">Запрос</button>
+    </form>
+    <div class="result"></div>
+  </div>
+
+  <script src="./5.js"></script>
+</body>
+</html>
