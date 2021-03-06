@@ -50,16 +50,18 @@ async function request(url, callback) {
   const size = proportions.value.match(/\d+[a-zа-яё]*/gi);
   const width = size[0];
   const height = size[1];
-  const checkig = checkLimit(+width, +height);
-  render(checkig);
+  const checking = checkLimit(+width, +height);
+  render(checking);
 
   try {
-    const response = await fetch(`${url}${width}/${height}`);
-    if (!response.ok) {
-      console.log(`Ошибка ${response.status}`);
-    } else {
-      callback(checkig, response.url);
-    }
+    if (checking.isRight) {
+      const response = await fetch(`${url}${width}/${height}`);
+      if (!response.ok) {
+        console.log(`Ошибка ${response.status}`);
+      } else {
+        callback(checking, response.url);
+      }
+    } else throw Error("Данные вне диапазона");
   } catch (e) {
     console.log(e);
   }
